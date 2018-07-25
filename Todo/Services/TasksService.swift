@@ -11,6 +11,7 @@ import Foundation
 protocol TasksDataSourceProtocol {
     func toggleCompleted(index: Int) -> Bool
     func getAll() -> [Task]
+    func add(newTask: Task)
 }
 
 class TasksService {
@@ -28,4 +29,9 @@ class TasksService {
     func getAll() -> [Task] {
         return dataSource.getAll()
     }
+    
+    func add(newTask: Task) {
+        dataSource.add(newTask: newTask)
+    }
+
 }

@@ -15,8 +15,8 @@
 		E77259A52100A3D10087EC56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77259A42100A3D10087EC56 /* AppDelegate.swift */; };
 		E77259A72100A3D10087EC56 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77259A62100A3D10087EC56 /* ListViewController.swift */; };
 		E77259AA2100A3D10087EC56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E77259A82100A3D10087EC56 /* Main.storyboard */; };
-		E77259AC2100A3D30087EC56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E77259AB2100A3D30087EC56 /* Assets.xcassets */; };
 		E77259AF2100A3D30087EC56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E77259AD2100A3D30087EC56 /* LaunchScreen.storyboard */; };
+		E788567E2108B8310019D2B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E788567D2108B8310019D2B6 /* Assets.xcassets */; };
 		E7FFD9832100A6F600304E60 /* CircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FFD9822100A6F600304E60 /* CircularTransition.swift */; };
 		E7FFD9872103280100304E60 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FFD9862103280100304E60 /* AddViewController.swift */; };
 /* End PBXBuildFile section */
@@ -32,9 +32,9 @@
 		E77259A42100A3D10087EC56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E77259A62100A3D10087EC56 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		E77259A92100A3D10087EC56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E77259AB2100A3D30087EC56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E77259AE2100A3D30087EC56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E77259B02100A3D30087EC56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E788567D2108B8310019D2B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7FFD9822100A6F600304E60 /* CircularTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransition.swift; sourceTree = "<group>"; };
 		E7FFD9862103280100304E60 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		FEE3F2D3298668B7597130F6 /* Pods-Todo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Todo/Pods-Todo.release.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +122,7 @@
 		E77259A32100A3D10087EC56 /* Todo */ = {
 			isa = PBXGroup;
 			children = (
+				E788567D2108B8310019D2B6 /* Assets.xcassets */,
 				E763A99C210866FD00E089DB /* Data */,
 				E763A9992105E42C00E089DB /* Services */,
 				E763A9962105E3B800E089DB /* Models */,
@@ -130,7 +131,6 @@
 				E7FFD9812100A6C800304E60 /* Transitions */,
 				E77259A42100A3D10087EC56 /* AppDelegate.swift */,
 				E77259A82100A3D10087EC56 /* Main.storyboard */,
-				E77259AB2100A3D30087EC56 /* Assets.xcassets */,
 				E77259AD2100A3D30087EC56 /* LaunchScreen.storyboard */,
 				E77259B02100A3D30087EC56 /* Info.plist */,
 			);
@@ -231,7 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E77259AF2100A3D30087EC56 /* LaunchScreen.storyboard in Resources */,
-				E77259AC2100A3D30087EC56 /* Assets.xcassets in Resources */,
+				E788567E2108B8310019D2B6 /* Assets.xcassets in Resources */,
 				E77259AA2100A3D10087EC56 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,7 +437,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 37CF7JS2KN;
 				INFOPLIST_FILE = Todo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.muraterdogan.Todo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -453,7 +456,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 37CF7JS2KN;
 				INFOPLIST_FILE = Todo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.muraterdogan.Todo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

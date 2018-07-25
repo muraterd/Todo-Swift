@@ -9,26 +9,11 @@
 import Foundation
 
 class MockTasksDataSource : TasksDataSourceProtocol {
+    
     var tasks = [Task]()
     
     init() {
         tasks.append(Task(title: "Remember the milk", completed: true))
-        tasks.append(Task(title: "Buy some beers", completed: false))
-        tasks.append(Task(title: "Buy some beers", completed: false))
-        tasks.append(Task(title: "Buy some beers", completed: false))
-        tasks.append(Task(title: "Buy some beers", completed: false))
-        tasks.append(Task(title: "Buy some beers", completed: false))
-        tasks.append(Task(title: "Buy some beers", completed: false))
-        tasks.append(Task(title: "Buy some beers", completed: false))
-        tasks.append(Task(title: "Buy some beers", completed: false))
-        tasks.append(Task(title: "Buy some beers", completed: false))
-        tasks.append(Task(title: "Buy some beers", completed: false))
-        tasks.append(Task(title: "Buy some beers", completed: false))
-        tasks.append(Task(title: "Buy some beers", completed: false))
-        tasks.append(Task(title: "Buy some beers", completed: false))
-        tasks.append(Task(title: "Buy some beers", completed: false))
-        tasks.append(Task(title: "Buy some beers", completed: false))
-        tasks.append(Task(title: "Buy some beers", completed: false))
         tasks.append(Task(title: "Buy some beers", completed: false))
     }
     
@@ -40,5 +25,9 @@ class MockTasksDataSource : TasksDataSourceProtocol {
     
     func getAll() -> [Task] {
         return tasks
+    }
+    
+    func add(newTask: Task) {
+        tasks.append(newTask)
     }
 }

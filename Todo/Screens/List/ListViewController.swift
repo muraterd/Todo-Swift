@@ -17,6 +17,7 @@ class ListViewController: UIViewController {
     var tasks: [Task] = tasksService.getAll()
     
     // IBOutlets
+    @IBOutlet weak var addTaskBtn: UIButton!
     @IBOutlet weak var tasksCV: UICollectionView!
     
     override func viewDidLoad() {
@@ -25,8 +26,9 @@ class ListViewController: UIViewController {
         // Setup Collection view
         tasksCV.delegate = self
         tasksCV.dataSource = self
+        
+        addTaskBtn.layer.cornerRadius = addTaskBtn.frame.width / 2
     }
-
 }
 
 extension ListViewController : UICollectionViewDataSource, UICollectionViewDelegate {
@@ -54,5 +56,17 @@ extension ListViewController : UICollectionViewDataSource, UICollectionViewDeleg
         if let cell = collectionView.cellForItem(at: indexPath) as? TodoCVCell {
             isChecked ? cell.setAsCompleted() : cell.setAsNotCompleted()
         }
+    }
+}
+
+extension ListViewController : AddTaskDelegate {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let target = segue.destination as! AddViewController
+        target.delegate = self
+    }
+    
+    func onTaskAdded() {
+        tasks = tasksService.getAll()
+        tasksCV.reloadData()
     }
 }

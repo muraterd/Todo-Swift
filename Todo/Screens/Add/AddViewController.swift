@@ -8,32 +8,40 @@
 
 import UIKit
 
+protocol AddTaskDelegate {
+    func onTaskAdded()
+}
+
 class AddViewController: UIViewController {
 
+    // Variables
+    var delegate: AddTaskDelegate!
+    
+    // IBOutlets
+    @IBOutlet weak var newTask: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func onCloseButtonPressed(_ sender: Any) {
+        closeModal()
     }
-
-    @IBAction func onBackButtonPressed(_ sender: Any) {
-        //print("Hede")
-        navigationController?.popViewController(animated: true)
-        //self.dismiss(animated: true, completion: nil)
+    
+    @IBAction func onOverlayButtonPressed(_ sender: Any) {
+        closeModal()
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func onAddTaskButtonPressed(_ sender: Any) {
+        if !newTask.text.isEmpty {
+            tasksService.add(newTask: Task(title: newTask.text, completed: false))
+            delegate.onTaskAdded()
+        }
+        closeModal()
     }
-    */
+    
+    private func closeModal() {
+        dismiss(animated: true, completion: nil)
+    }
 
 }
