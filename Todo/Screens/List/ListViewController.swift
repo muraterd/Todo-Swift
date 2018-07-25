@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 import  M13Checkbox
 
 let tasksService = TasksService(dataSource: MockTasksDataSource())

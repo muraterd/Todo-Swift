@@ -14,8 +14,7 @@ protocol TasksDataSourceProtocol {
 }
 
 class TasksService {
-    var tasks = [Task]()
-    
+
     let dataSource: TasksDataSourceProtocol
     
     init(dataSource: TasksDataSourceProtocol) {
