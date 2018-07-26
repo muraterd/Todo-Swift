@@ -1,20 +1,29 @@
 PODS:
   - M13Checkbox (3.2.2)
-  - SwipeCellKit (2.2.0)
+  - SwipeCellKit (2.4.3)
 
 DEPENDENCIES:
   - M13Checkbox
-  - SwipeCellKit
+  - SwipeCellKit (from `https://github.com/SwipeCellKit/SwipeCellKit.git`, branch `master`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - M13Checkbox
-    - SwipeCellKit
+
+EXTERNAL SOURCES:
+  SwipeCellKit:
+    :branch: master
+    :git: https://github.com/SwipeCellKit/SwipeCellKit.git
+
+CHECKOUT OPTIONS:
+  SwipeCellKit:
+    :commit: f8a53daa475770a05fa64cef4d42fb5b4362f32c
+    :git: https://github.com/SwipeCellKit/SwipeCellKit.git
 
 SPEC CHECKSUMS:
   M13Checkbox: a8c2491cfbbca10797925fd0b9154a782bf40d89
-  SwipeCellKit: 8ae09401e1137566b187980d824310129233c959
+  SwipeCellKit: cee9906e6d3a36e22ad1a852fba7f8fa0839d113
 
-PODFILE CHECKSUM: b272cef52fc383a4bb3f211dbb1f775333dbb27b
+PODFILE CHECKSUM: 3547582f7c12551e5ff8caacb657a641571e78e6
 
 COCOAPODS: 1.5.2

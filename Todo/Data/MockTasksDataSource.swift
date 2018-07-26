@@ -30,4 +30,8 @@ class MockTasksDataSource : TasksDataSourceProtocol {
     func add(newTask: Task) {
         tasks.append(newTask)
     }
+    
+    func delete(index: Int) {
+        tasks.remove(at: index)
+    }
 }

@@ -12,6 +12,7 @@ protocol TasksDataSourceProtocol {
     func toggleCompleted(index: Int) -> Bool
     func getAll() -> [Task]
     func add(newTask: Task)
+    func delete(index: Int)
 }
 
 class TasksService {
@@ -32,6 +33,10 @@ class TasksService {
     
     func add(newTask: Task) {
         dataSource.add(newTask: newTask)
+    }
+    
+    func delete(index: Int) {
+        dataSource.delete(index: index)
     }
 
 }

@@ -8,8 +8,9 @@
 
 import UIKit
 import M13Checkbox
+import SwipeCellKit
 
-class TodoCVCell: UICollectionViewCell {
+class TodoCVCell: SwipeCollectionViewCell {
     
     // IBOutlets
     @IBOutlet weak var checkbox: M13Checkbox!

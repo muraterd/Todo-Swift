@@ -8,6 +8,7 @@
 
 import UIKit
 import  M13Checkbox
+import SwipeCellKit
 
 let tasksService = TasksService(dataSource: MockTasksDataSource())
 
@@ -42,6 +43,7 @@ extension ListViewController : UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TodoCell", for: indexPath) as! TodoCVCell
         
+        cell.delegate = self
         cell.setupUI(tasks[indexPath.row])
         
         return cell
@@ -56,6 +58,28 @@ extension ListViewController : UICollectionViewDataSource, UICollectionViewDeleg
         if let cell = collectionView.cellForItem(at: indexPath) as? TodoCVCell {
             isChecked ? cell.setAsCompleted() : cell.setAsNotCompleted()
         }
+    }
+}
+
+extension ListViewController : SwipeCollectionViewCellDelegate {
+    func collectionView(_ collectionView: UICollectionView, editActionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            tasksService.delete(index: indexPath.row)
+            self.tasks = tasksService.getAll()
+        }
+        
+        // customize the action appearance
+        deleteAction.image = UIImage(named: "delete")
+        
+        return [deleteAction]
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, editActionsOptionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .destructive
+        options.transitionStyle = .border
+        return options
     }
 }
 
