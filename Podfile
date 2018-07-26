@@ -7,6 +7,7 @@ target 'Todo' do
 
   # Pods for Todo
   pod 'M13Checkbox'
+  pod 'IQKeyboardManagerSwift'
   pod 'SwipeCellKit', :git => 'https://github.com/SwipeCellKit/SwipeCellKit.git', :branch => 'master'
 
 end

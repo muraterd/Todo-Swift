@@ -1,13 +1,16 @@
 PODS:
+  - IQKeyboardManagerSwift (6.0.2)
   - M13Checkbox (3.2.2)
   - SwipeCellKit (2.4.3)
 
 DEPENDENCIES:
+  - IQKeyboardManagerSwift
   - M13Checkbox
   - SwipeCellKit (from `https://github.com/SwipeCellKit/SwipeCellKit.git`, branch `master`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - IQKeyboardManagerSwift
     - M13Checkbox
 
 EXTERNAL SOURCES:
@@ -21,9 +24,10 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwipeCellKit/SwipeCellKit.git
 
 SPEC CHECKSUMS:
+  IQKeyboardManagerSwift: 59d4b0e140bc546c3c76ae5bb35b3dafd10b8172
   M13Checkbox: a8c2491cfbbca10797925fd0b9154a782bf40d89
   SwipeCellKit: cee9906e6d3a36e22ad1a852fba7f8fa0839d113
 
-PODFILE CHECKSUM: 3547582f7c12551e5ff8caacb657a641571e78e6
+PODFILE CHECKSUM: e8dd7a4d405c3cfa8eb908b76fb23ef4992c64e9
 
 COCOAPODS: 1.5.2
