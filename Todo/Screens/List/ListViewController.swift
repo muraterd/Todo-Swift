@@ -52,12 +52,18 @@ extension ListViewController : UICollectionViewDataSource, UICollectionViewDeleg
     // Select a cell
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let isChecked = tasksService.toggleCompleted(index: indexPath.row)
-        tasks = tasksService.getAll()
-        
-        if let cell = collectionView.cellForItem(at: indexPath) as? TodoCVCell {
-            isChecked ? cell.setAsCompleted() : cell.setAsNotCompleted()
+        do {
+            let task = tasks[indexPath.row]
+            let isChecked = try tasksService.toggleCompleted(task: task)
+            tasks = tasksService.getAll()
+            
+            if let cell = collectionView.cellForItem(at: indexPath) as? TodoCVCell {
+                isChecked ? cell.setAsCompleted() : cell.setAsNotCompleted()
+            }
+        } catch let error {
+            print(error.localizedDescription)
         }
+        
     }
 }
 
@@ -65,7 +71,8 @@ extension ListViewController : SwipeCollectionViewCellDelegate {
     func collectionView(_ collectionView: UICollectionView, editActionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-            tasksService.delete(index: indexPath.row)
+            let task = self.tasks[indexPath.row]
+            tasksService.delete(task: task)
             self.tasks = tasksService.getAll()
         }
         

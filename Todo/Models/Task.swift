@@ -9,6 +9,7 @@
 import Foundation
 
 struct Task {
-    let title: String? 
+    let id = UUID().uuidString
+    var title: String
     var completed = false
 }

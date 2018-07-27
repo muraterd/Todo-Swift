@@ -9,10 +9,11 @@
 import Foundation
 
 protocol TasksDataSourceProtocol {
-    func toggleCompleted(index: Int) -> Bool
+    func toggleCompleted(task: Task) throws -> Bool
+    func findById(id: String) -> Task?
     func getAll() -> [Task]
-    func add(newTask: Task)
-    func delete(index: Int)
+    func add(newTask: Task) -> Task
+    func delete(task: Task)
 }
 
 class TasksService {
@@ -23,20 +24,20 @@ class TasksService {
         self.dataSource = dataSource
     }
 
-    func toggleCompleted(index: Int) -> Bool {
-        return dataSource.toggleCompleted(index: index)
+    func toggleCompleted(task: Task) throws -> Bool {
+        return try dataSource.toggleCompleted(task: task)
     }
     
     func getAll() -> [Task] {
         return dataSource.getAll()
     }
     
-    func add(newTask: Task) {
-        dataSource.add(newTask: newTask)
+    func add(newTask: Task) -> Task {
+        return dataSource.add(newTask: newTask)
     }
     
-    func delete(index: Int) {
-        dataSource.delete(index: index)
+    func delete(task: Task) {
+        dataSource.delete(task: task)
     }
 
 }
